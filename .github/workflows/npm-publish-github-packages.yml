@@ -1,48 +1,21 @@
 name: Node.js Package
-
 on:
-  release:
-    types: [created]
-
+  workflow_dispatch:   # 👈 enables manual trigger
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npm test
+      - name: first job
+        run: |
+          echo "Starting script one"
+          ls -la
+          pwd
 
   publish-gpr:
     runs-on: ubuntu-latest
-    needs: build   # ensures build runs first
-    permissions:
-      contents: read
-      packages: write
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js for GitHub Packages
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          registry-url: https://npm.pkg.github.com/
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Publish package
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: second job
+        run: |
+          echo "Starting script two"
+          ls -la
+          pwd

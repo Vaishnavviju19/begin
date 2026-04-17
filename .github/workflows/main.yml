@@ -9,6 +9,7 @@ jobs:
    steps:
      - name: checking code
        run: echo " checking out code"
+       
      - name: action usning step
        uses: actions/checkout@v4
      

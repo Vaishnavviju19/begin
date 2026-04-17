@@ -10,6 +10,6 @@ jobs:
      - name: checking code
        run: echo " checking out code"
      - name: action usning step
-       uses: actions/checkout@V4
+       uses: actions/checkout@v4
      
     

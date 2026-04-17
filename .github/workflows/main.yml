@@ -1,0 +1,15 @@
+name: vaishnav_new
+
+on:
+ schedule:
+    - cron:  "*/5 * * * *"
+jobs:
+  checkout:
+   runs-on: ubuntu-latest
+   steps:
+     - name: checking code
+       run: echo " checking out code"
+     - name: action usning step
+       uses: actions/checkout@V4
+     
+    

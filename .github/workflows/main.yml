@@ -1,16 +1,17 @@
 name: vaishnav_new
 
 on:
- schedule:
-    - cron:  "*/5 * * * *"
+  schedule:
+    - cron: "*/5 * * * *"
+
 jobs:
   checkout:
-   runs-on: ubuntu-latest
-   steps:
-     - name: checking code
-       run: echo " checking out code"
-       
-     - name: action usning step
-       uses: actions/checkout@v4
-     
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run a simple command
+        run: echo "Code is now checked out"
     

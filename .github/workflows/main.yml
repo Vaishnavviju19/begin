@@ -4,9 +4,23 @@ on:
   push: 
    branches:
      - main
+     - dev
   schedule:
     - cron: "*/5 * * * *"
+  pull_request:  
   workflow_dispatch:
+   inputs:
+     name:
+      description: " Name of the person"
+      required: true
+      type: string
+     greeting:
+      description: "greeting for thr person"
+      required: true
+      type: string
+
+  release:
+    types: [prereleased,published] 
     
 
 jobs:
@@ -16,7 +30,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+         ref: dev
+         repository:   
+         token: ${secrets.
+        
 
       - name: Run a simple command
-        run: echo "Code is now checked out"
+        run: |
+         echo "Code is now checked out by person ${{inputs.name}}"
+         echo " the greeting is ${{inputs.greeting}}"
+         sudo apt update
+        
     

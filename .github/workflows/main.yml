@@ -17,7 +17,8 @@ on:
      greeting:
       description: "greeting for thr person"
       required: true
-      type: string
+      type: choice
+      options: [prod,dev,qa]
 
   release:
     types: [prereleased,published] 
